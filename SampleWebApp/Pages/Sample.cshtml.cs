@@ -18,6 +18,11 @@ namespace SampleWebApp.Pages
 
         public void OnGet(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                 throw new ArgumentNullException(nameof(name));
+            }
+
             this.Value = _configuration[name];
         }
     }
